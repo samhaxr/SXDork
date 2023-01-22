@@ -17,6 +17,53 @@ pip install -r requirements.txt
 python SXDork.py
 
 ```
+## Help
+```
+usage: SXDork.py [-h] [-s SEARCH] [-r RESULT] [-dl DOMLOGIN] [-da DOMADMIN]
+                 [-wp WPADMIN] [-lp LPANEL] [-sql SQLFILE] [-cnf CONFILE]
+                 [-log LOGFILE] [-dash DASHBOARD] [-rsa IDRSA] [-ftp FTPFILE]
+                 [-bck BACKUPFILE] [-ma MAILARCHIVE] [-pw PASSWORD]
+                 [-pic PHOTOS] [-cam CCTVCAM]
 
+Search keywords using google dork
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -s SEARCH, --search SEARCH
+                        Search keyword with dork
+  -r RESULT, --result RESULT
+                        Number of output result
+  -dl DOMLOGIN, --domlogin DOMLOGIN
+                        Search domain(s) for login pages
+  -da DOMADMIN, --domadmin DOMADMIN
+                        Search domain(s) for admin panels
+  -wp WPADMIN, --wpadmin WPADMIN
+                        Search domain(s) for wordpress admin
+  -lp LPANEL, --lpanel LPANEL
+                        Search domain(s) for login panels
+  -sql SQLFILE, --sqlfile SQLFILE
+                        Search domain(s) for sql database files
+  -cnf CONFILE, --confile CONFILE
+                        Search domain(s) for configuration files
+  -log LOGFILE, --logfile LOGFILE
+                        Search domain(s) for log files
+  -dash DASHBOARD, --dashboard DASHBOARD
+                        Search domain(s) for the dashboard
+  -rsa IDRSA, --idrsa IDRSA
+                        Search domain(s) for id_rsa pub keys
+  -ftp FTPFILE, --ftpfile FTPFILE
+                        Search domain(s) for FTP files
+  -bck BACKUPFILE, --backupfile BACKUPFILE
+                        Search domain(s) for backup files
+  -ma MAILARCHIVE, --mailarchive MAILARCHIVE
+                        Search domain(s) for mail archives
+  -pw PASSWORD, --password PASSWORD
+                        Search domain(s) for passwords
+  -pic PHOTOS, --photos PHOTOS
+                        Search domain(s) for DCIM/Photos
+  -cam CCTVCAM, --cctvcam CCTVCAM
+                        Search domain(s) for CCTV/CAMs
+
+```
 ## Demo
 ![SXDorks](Img/SXDork.gif)
