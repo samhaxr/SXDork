@@ -19,4 +19,4 @@ python SXDork.py
 ```
 
 ## Demo
-![SXDorks](img/SXDork.gif)
+![SXDorks](Img/SXDork.gif)
