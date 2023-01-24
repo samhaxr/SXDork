@@ -1,3 +1,9 @@
+[![GitHub release](https://img.shields.io/badge/release-v1.0-brightgreen?style=flat-square)](https://github.com/samhaxr/SXDork/releases/tag/1.1.2)
+[![GitHub stars](https://img.shields.io/github/stars/samhaxr/SXDork?style=flat-square)](https://github.com/samhaxr/SXDork/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/samhaxr/SXDork?style=flat-square)](https://github.com/samhaxr/SXDork/network)
+[![GitHub issues](https://img.shields.io/github/issues/samhaxr/SXDork?style=flat-square)](https://github.com/samhaxr/SXDork/issues)
+[![GitHub license](https://img.shields.io/github/license/samhaxr/SXDork?style=flat-square)](https://github.com/samhaxr/SXDork/blob/main/LICENSE)
+
 # SXDork v1.0
 
 SXDork is a powerful tool that utilizes the technique of google dorking to search for specific information on the internet. Google dorking is a method of using advanced search operators and keywords to uncover sensitive information that is publicly available on the internet. SXDork offers a wide range of options to search for different types of dorks, such as domain login dork, wpadmin dork, SQL dork, configuration file dorks, logfile dorks, dashboard dork, id_rsa dorks, ftp dorks, backup file dorks, mail archive dorks, password dorks, DCIM photos dork, and CCTV dorks.
@@ -8,7 +14,7 @@ SXDork also allows users to search wildcard domains and find a wide range of inf
 
 SXDork has the ability to search for information on multiple domains. By default, the tool searches for information on pastebin.com and controlc.com, but you can easily add more domains to search against. To do this, you can navigate to the src directory and edit the dorks.py file, where you will see an array called src that contains the default domains. Simply add more domains to this array, and the next time you run a search query, SXDork will check all the domains in the array for the keyword you are searching for. This allows you to easily find information across multiple domains.
 
-## Usage
+## Installation
 ```
 git clone https://github.com/samhaxr/SXDork.git
 python3 -m venv venv
@@ -17,7 +23,7 @@ pip install -r requirements.txt
 python SXDork.py
 
 ```
-## Help
+## Usage
 ```
 usage: SXDork.py [-h] [-s SEARCH] [-r RESULT] [-dl DOMLOGIN] [-da DOMADMIN]
                  [-wp WPADMIN] [-lp LPANEL] [-sql SQLFILE] [-cnf CONFILE]
