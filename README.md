@@ -2,6 +2,8 @@
 [![GitHub stars](https://img.shields.io/github/stars/samhaxr/SXDork?style=flat-square)](https://github.com/samhaxr/SXDork/stargazers)
 [![GitHub forks](https://img.shields.io/github/forks/samhaxr/SXDork?style=flat-square)](https://github.com/samhaxr/SXDork/network)
 [![GitHub issues](https://img.shields.io/github/issues/samhaxr/SXDork?style=flat-square)](https://github.com/samhaxr/SXDork/issues)
+[![GitHub pulls](https://img.shields.io/github/issues-pr/samhaxr/SXDork?style=flat-square)](https://github.com/samhaxr/SXDork/pulls)
+[![GitHub watch](https://img.shields.io/github/watchers/samhaxr/SXDork?style=flat-square)](https://github.com/samhaxr/SXDork/watch)
 [![GitHub license](https://img.shields.io/github/license/samhaxr/SXDork?style=flat-square)](https://github.com/samhaxr/SXDork/blob/main/LICENSE)
 
 # SXDork v1.0
