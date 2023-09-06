@@ -1,4 +1,3 @@
-#!/bin/bash
 #!Coded by Suleman Malik
 #!www.sulemanmalik.com
 #!Twitter: @sulemanmalik_3
