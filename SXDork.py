@@ -29,47 +29,36 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 from __future__ import print_function
-from src.colors import colors
 from src.dorks import *
-from src.type import writer
-from src.load import load, banner, clear, start
-from src.parse_file import *
+from src.load import start
+
+
+dork_functions = {
+    'dork_search': Keyword_dorks,
+    'dork_domlogin': run_dorks,
+    'dork_domadmin': run_dorks,
+    'dork_wpadmin': run_dorks,
+    'dork_lpanel': run_dorks,
+    'dork_dashboard': run_dorks,
+    'dork_idrsa': run_dorks,
+    'dork_sqlfile': run_dorks,
+    'dork_confile': run_dorks,
+    'dork_logfile': run_dorks,
+    'dork_ftpfile': run_dorks,
+    'dork_backupfile': run_dorks,
+    'dork_mailarchive': run_dorks,
+    'dork_password': run_dorks,
+    'dork_photos': run_dorks,
+    'dork_cctvcam': run_dorks,
+}
 
 def main():
     try:
         start()
-        if dork_search is not None:
-            Keyword_dorks(dork_search)
-        elif dork_domlogin is not None:
-            run_dorks()
-        elif dork_domadmin is not None:
-            run_dorks()
-        elif dork_wpadmin is not None:
-            run_dorks()
-        elif dork_lpanel is not None:
-            run_dorks()
-        elif dork_dashboard is not None:
-            run_dorks()
-        elif dork_idrsa is not None:
-            run_dorks()
-        elif dork_sqlfile is not None:
-            run_dorks()
-        elif dork_confile is not None:
-            run_dorks()
-        elif dork_logfile is not None:
-            run_dorks()
-        elif dork_ftpfile is not None:
-            run_dorks()
-        elif dork_backupfile is not None:
-            run_dorks()
-        elif dork_mailarchive is not None:
-            run_dorks()
-        elif dork_password is not None:
-            run_dorks()
-        elif dork_photos is not None:
-            run_dorks()
-        elif dork_cctvcam is not None:
-            run_dorks()
+        for key, value in dork_functions.items():
+            if vars().get(key):
+                value()
+                break
         else:
             print('ERROR!')
     except urllib.error.HTTPError as err:

@@ -38,74 +38,37 @@ def Keyword_dorks(dork_search):
                 sys.exit(1)
                 
 def run_dorks():
+    search_map = {
+        "dork_domlogin": "inurl:login site:{}",
+        "dork_domadmin": "inurl:admin site:{}",
+        "dork_wpadmin": "inurl:wp-admin site:{}",
+        "dork_lpanel": "inurl:loginpanel site:{}",
+        "dork_dashboard": "inurl:dashboard site:{}",
+        "dork_idrsa": "index of:id_rsa id_rsa.pub site:{}",
+        "dork_sqlfile": "filetype:sql site:{}",
+        "dork_confile": "filetype:conf site:{}",
+        "dork_logfile": "filetype:conf site:{}",
+        "dork_ftpfile": 'intitle:"index of" "ftp" site:{}',
+        "dork_backupfile": 'intitle:"index of" "backup" site:{}',
+        "dork_mailarchive": 'intitle:"index of" "mail" site:{}',
+        "dork_password": 'intitle:"index of" "password" site:{}',
+        "dork_photos": 'intitle:"index of" "DCIM" site:{}',
+        "dork_cctvcam": 'inurl:"CgiStart?page=" site:{}'
+    }
     try:
         if dork_result:
             amount = dork_result
-        if dork_domlogin:
-            login_search_dork = f'inurl:login site:{dork_domlogin}'
-            headers = f'Searching login pages for the domain '
-            headers += f'\"{colors.GREEN}{dork_domlogin}{colors.RESET}\"'
-        if dork_domadmin:
-            login_search_dork = f'inurl:admin site:{dork_domadmin}'
-            headers = f'Searching admin panels for the domain '
-            headers += f'\"{colors.GREEN}{dork_domadmin}{colors.RESET}\"'
-        if dork_wpadmin:
-            login_search_dork = f'inurl:wp-admin site:{dork_wpadmin}'
-            headers = f'Searching wordpress admin panel for the domain '
-            headers += f'\"{colors.GREEN}{dork_wpadmin}{colors.RESET}\"'
-        if dork_lpanel:
-            login_search_dork = f'inurl:loginpanel site:{dork_lpanel}'
-            headers = f'Searching login panel for the domain '
-            headers += f'\"{colors.GREEN}{dork_lpanel}{colors.RESET}\"'
-        if dork_dashboard:
-            login_search_dork = f'inurl:dashboard site:{dork_dashboard}'
-            headers = f'Searching dashboard for the domain '
-            headers += f'\"{colors.GREEN}{dork_dashboard}{colors.RESET}\"'
-        if dork_idrsa:
-            login_search_dork = f'index of:id_rsa id_rsa.pub site:{dork_idrsa}'
-            headers = f'Searching for id_rsa pub keys on '
-            headers += f'\"{colors.GREEN}{dork_idrsa}{colors.RESET}\"'
-        if dork_sqlfile:
-            login_search_dork = f'filetype:sql site:{dork_sqlfile}'
-            headers = f'Searching for sql files on '
-            headers += f'\"{colors.GREEN}{dork_sqlfile}{colors.RESET}\"'
-        if dork_confile:
-            login_search_dork = f'filetype:conf site:{dork_confile}'
-            headers = f'Searching for configuration files on '
-            headers += f'\"{colors.GREEN}{dork_confile}{colors.RESET}\"'
-        if dork_logfile:
-            login_search_dork = f'filetype:conf site:{dork_logfile}'
-            headers = f'Searching for log files on '
-            headers += f'\"{colors.GREEN}{dork_logfile}{colors.RESET}\"'
-        if dork_ftpfile:
-            login_search_dork = f'intitle:"index of" "ftp" site:{dork_ftpfile}'
-            headers = f'Searching for FTP files on '
-            headers += f'\"{colors.GREEN}{dork_ftpfile}{colors.RESET}\"'
-        if dork_backupfile:
-            login_search_dork = f'intitle:"index of" "backup" site:{dork_backupfile}'
-            headers = f'Searching for backup files on '
-            headers += f'\"{colors.GREEN}{dork_backupfile}{colors.RESET}\"'
-        if dork_mailarchive:
-            login_search_dork = f'intitle:"index of" "mail" site:{dork_mailarchive}'
-            headers = f'Searching for mail archives on '
-            headers += f'\"{colors.GREEN}{dork_mailarchive}{colors.RESET}\"'
-        if dork_password:
-            login_search_dork = f'intitle:"index of" "password" site:{dork_password}'
-            headers = f'Searching passwords on '
-            headers += f'\"{colors.GREEN}{dork_password}{colors.RESET}\"'
-        if dork_photos:
-            login_search_dork = f'intitle:"index of" "DCIM" site:{dork_photos}'
-            headers = f'Searching DCIM/Photos on '
-            headers += f'\"{colors.GREEN}{dork_photos}{colors.RESET}\"'
-        if dork_cctvcam:
-            login_search_dork = f'inurl:”CgiStart?page=” site:{dork_cctvcam}'
-            headers = f'Searching CCTV/CAMs on '
-            headers += f'\"{colors.GREEN}{dork_cctvcam}{colors.RESET}\"'
+        for key, value in search_map.items():
+            if vars().get(key):
+                login_search_dork = value.format(vars().get(key))
+                headers = f'Searching {" ".join(key.split("_")[1:])} for the domain '
+                headers += f'\"{colors.GREEN}{vars().get(key)}{colors.RESET}\"'
+                break
         __req = 0
         body = []
         head = [headers]
-        for results in search(login_search_dork, tld="com", lang="en", num=int(amount), 
-            start=0, stop=None, pause=2, 
+        for results in search(login_search_dork, tld="com", lang="en", num=int(amount),
+            start=0, stop=None, pause=2,
             user_agent=get_random_user_agent()):
             body.append([results])
             __req += 1

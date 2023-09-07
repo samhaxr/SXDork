@@ -4,7 +4,7 @@ import sys, time, os
 from src.type import writer
 
 def banner():
-    print(f'''
+    banner_text = f"""
     +-+-+-+-+-+-+-+-+-+-+-+
     V : :.::.:........:.:  :V
    A  {colors.RED}A{colors.RESET}:    ..:...:...:.   {colors.RED}A{colors.RESET} A
@@ -15,23 +15,19 @@ def banner():
   V.  .:. .....:AMMA. . .:. .V
    VMM...: ...:.MMMM.: .: MMV 
     -+-+-+-+-+-+-+-+-+-+-+-     
-        ''')
+    """
+    print(banner_text)
 
 def load():
-    msg = 'Loading Please Wait '
-    animation = [f"{msg}[{colors.RED}■□□□□□□□□□ 10%{colors.RESET}]",
-                f"{msg}[{colors.RED}■■□□□□□□□□ 20%{colors.RESET}]", 
-                f"{msg}[{colors.RED}■■■□□□□□□□ 30%{colors.RESET}]", 
-                f"{msg}[{colors.YELLOW}■■■■□□□□□□ 40%{colors.RESET}]", 
-                f"{msg}[{colors.YELLOW}■■■■■□□□□□ 50%{colors.RESET}]", 
-                f"{msg}[{colors.YELLOW}■■■■■■□□□□ 60%{colors.RESET}]", 
-                f"{msg}[{colors.GREEN}■■■■■■■□□□ 70%{colors.RESET}]", 
-                f"{msg}[{colors.GREEN}■■■■■■■■□□ 80%{colors.RESET}]", 
-                f"{msg}[{colors.GREEN}■■■■■■■■■□ 90%{colors.RESET}]", 
-                f"{msg}[{colors.GREEN}■■■■■■■■■■ 100%{colors.RESET}]"]
-    for i in range(len(animation)):
-        time.sleep(.5)
-        sys.stdout.write("\r" + animation[i % len(animation)])
+    msg = f'{colors.YELLOW}Loading Please Wait{colors.RESET} '
+    bar_length = 10
+    for i in range(bar_length + 1):
+        progress = i / bar_length
+        bar = f"[{colors.RED}{'■' * i}{colors.RESET}{'□' * (bar_length - i)}]"
+        percentage = f"{int(progress * 100)}%"
+        animation = f"{msg}{bar} {percentage}"
+        time.sleep(0.5)
+        sys.stdout.write("\r" + animation)
         sys.stdout.flush()
     print("\n")
 
